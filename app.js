@@ -18,6 +18,7 @@ const { app, BrowserWindow } = require('electron')
 dotenv.config()
 // // ###################### Serving Static Files ###########################
 route.use(express.static(PATH.join(__dirname, './Public')))
+
         
 // ############################# MIDDLE-WARES #############################
 route.use(bodyparser.urlencoded({extended: true}))
