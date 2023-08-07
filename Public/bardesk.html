@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <title>FrontOffice</title>
+</head>
+<body>
+<div class="wrapper-bar">
+    <div class="nav-bar">
+        <a href="/" class="fo-home">Home</a>
+        <h1>BAR OFFICE DESK</h1>
+        <a href="/logout" class="fo-logout">Logout</a>
+    </div>
+        <div class="content">
+            <div class="view2" style="display: flex;">
+                <div>
+                    <h2>No#</h2>
+                    <h3>1</h3>
+                    <h3>2</h3>
+                    <h3>3</h3>
+                    <h3>4</h3>
+                    <h3>5</h3>
+                    <h3>6</h3>
+                    <h3>7</h3>
+                    <h3>8</h3>
+                    <h3>9</h3>
+                </div>
+                <div>
+                    <h2>Drinks</h2>
+                    <h3>Henieken</h3>
+                    <h3>Gulder</h3>
+                    <h3>Star</h3>
+                    <h3>Life</h3>
+                    <h3>Hero</h3>
+                    <h3>Legend</h3>
+                    <h3>Tiger</h3>
+                    <h3>Budwiser</h3>
+                    <h3>Sminoffice</h3>
+                </div>
+                <div>
+                    <h2>Prices(N)</h2>
+                    <h3 class="p1">700</h3>
+                    <h3 class="p2">700</h3>
+                    <h3 class="p3">500</h3>
+                    <h3 class="p4">400</h3>
+                    <h3 class="p5">550</h3>
+                    <h3 class="p6">450</h3>
+                    <h3 class="p7">300</h3>
+                    <h3 class="p8">280</h3>
+                    <h3 class="p9">350</h3>
+                </div>
+                <div class="Qty" style="display: none;">
+                    <h2>Qty/S</h2>
+                    <h3 class="s1">3</h3>
+                    <h3 class="s2">12</h3>
+                    <h3 class="s3">10</h3>
+                    <h3 class="s4">7</h3>
+                    <h3 class="s5">9</h3>
+                    <h3 class="s6">5</h3>
+                    <h3 class="s7">6</h3>
+                    <h3 class="s8">3</h3>
+                    <h3 class="s9">3</h3>
+                </div>
+                <div id="sold">
+                    <h2>Qty/S</h2>
+                    <input type="text" class="q1 check"><br>
+                    <input type="text" class="q2 check"><br>
+                    <input type="text" class="q3 check"><br>
+                    <input type="text" class="q4 check"><br>
+                    <input type="text" class="q5 check"><br>
+                    <input type="text" class="q6 check"><br>
+                    <input type="text" class="q7 check"><br>
+                    <input type="text" class="q8 check"><br>
+                    <input type="text" class="q9 check"><br>
+                </div>
+                <div>
+                    <h2>Total</h2>
+                    <h3 class="t1">0</h3>
+                    <h3 class="t2">0</h3>
+                    <h3 class="t3">0</h3>
+                    <h3 class="t4">0</h3>
+                    <h3 class="t5">0</h3>
+                    <h3 class="t6">0</h3>
+                    <h3 class="t7">0</h3>
+                    <h3 class="t8">0</h3>
+                    <h3 class="t9">0</h3>
+                </div>
+            </div>
+        </div>
+        <button onclick="myfunction()" class="btn1">Update</button>
+        <form method="POST">
+            <div class="get_data">
+            </div>
+            <input type="text" name="test" id="demo" style="display: none;" required>
+            <button onclick="myfunction1()" class="btn">Post Now</button>
+        </form>
+</div>
+<script>
+    function myfunction() {
+        const Check = document.querySelector(`.q9`).value
+            if(Check !== ''){
+                document.querySelector('.btn1').style.display = 'none'
+                document.querySelector('#sold').style.display = 'none'
+                document.querySelector('.Qty').style.display = 'block'
+                for (let i = 1; i < 10; i++) {
+                    document.querySelector(`.s${i}`).innerHTML = document.querySelector(`.q${i}`).value
+                    document.querySelector(`.t${i}`).innerHTML = document.querySelector(`.p${i}`).innerHTML * document.querySelector(`.q${i}`).value
+                }
+                var getinfo = document.querySelector('.content').innerHTML
+                document.querySelector('.get_data').innerHTML = getinfo
+                }
+    }
+
+    function myfunction1() {
+       var d = document.querySelector('.get_data').innerHTML
+        document.querySelector('#demo').value = d
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <title>FrontOffice</title>
+</head>
+<body>
+<div class="wrapper-guest-form">
+    <div class="nav-bar">
+        <a href="/Front-Office" class="fo-home">Back</a>
+        <h1>Check-In-Guest To-Room: <span class="guest-room"></span></h1>
+    </div>
+    <div class="form-div" required>
+        <form method="POST">
+            <input type="text" placeholder="Guest-Name" name="guest_name" required>
+            <input type="text" placeholder="Guest-Address" name="guest_address" required>
+                <label for="sex">Sex:</label>
+                <select name="sex" required>
+                <option>Male</option>
+                <option >Female</option>
+            </select>
+            <input type="text" placeholder="Guest-Occupation" name="guest_occupation" required>
+             <input type="tel" placeholder="Guest-Number" name="guest_number" required>
+            <label for="M-Status">Marital Status:</label>
+            <select name="M_status" required>
+                <option>Married</option>
+                <option >Single</option>
+                <option >Engaged</option>
+            </select>
+            <input type="text" placeholder="Amount" name="amount_pd" required>
+            <label for="Payment">Payment Type:</label>
+            <select name="payment" required>
+                <option>POS</option>
+                <option >Cash</option>
+                <option >Mobile Transfer</option>
+            </select>
+            <input type="submit" value="CHECK IN" class="sub">
+        </form>
+    </div>  
+</div>
+<script>
+$('document').ready(
+    $.ajax({
+        method: "POST",
+        success: (data, valid) => {
+            document.querySelector('.guest-room').innerHTML = data.Room
+        },
+        error: (err) => {
+            console.log(err)
+        }
+    })
+)
+</script>
+<!-- <script src="./js/main.js"></script> -->
+</body>
+</html>

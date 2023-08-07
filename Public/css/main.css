@@ -1,0 +1,865 @@
+@font-face {
+    font-family: 'bebas';
+    src: url('../fonts/BebasNeue.ttf');
+}
+@font-face {
+    font-family: 'bw-mitga';
+    src: url('../fonts/BwMitga-Black.ttf');
+}
+@font-face {
+    font-family: 'free-ship';
+    src: url('../fonts/freeshipping.ttf');
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+a{
+    color: black;
+}
+body{
+    height: auto;
+    width: auto;
+    font-family: roboto;
+}
+.wrapper,
+.wrapper-guest-form,
+.wrapper-admin,
+.wrapper-summary,
+.wrapper-home,
+.wrapper-bar,
+.wrapper-rest{
+    width: 100%;
+    height: 100vh;
+    background: rgba(250, 193, 5, 0.452);
+}
+.nav-bar{
+    position: relative;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 5px 0;
+}
+.wrapper .nav-bar h1{
+    font-size: 2.5em;
+    font-family: bebas-neue;
+    padding: 5px 0;
+}
+
+.fo-logout{
+    position: absolute;
+    border: transparent;
+    padding: 5px 10px;
+    border-radius: 10px;
+    top: 18px;
+    right: 30px;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: bebas;
+    color: white;
+}
+.fo-home{
+    position: absolute;
+    border: transparent;
+    padding: 5px 10px;
+    border-radius: 10px;
+    top: 18px;
+    left: 30px;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: bebas;
+    color: white;
+}
+.fo-logout:hover, .fo-home:hover{
+    background-color: rgb(92, 87, 87);
+}
+.rooms{
+    display: grid;
+    grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
+}
+.rooms div{
+    padding: 10px 0;
+    font: bolder 1.5vw courier new;
+    text-align: center;
+    background-color: rgb(5, 236, 44);
+    border: 1px solid white;
+}
+.rooms div:hover{
+    background-color: rgb(3, 102, 19);
+    cursor: pointer;
+    color: white;
+}
+.activity{
+    display: none;
+    visibility:hidden;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-60%, -50%);
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 15vh 10vw;
+    box-shadow: 1px 1px 5px black
+}
+.activity button{
+    width: 200px;
+    padding: 10px 0;
+    font-weight: bolder;
+}
+.status{
+    width: 200px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.vacant{
+    display: flex;
+    align-items: center;
+}
+.vacant div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(5, 236, 44);
+    margin: 5px;
+    font-weight: bolder;
+}
+.vacant .occupied{
+    background-color: yellow !important;
+}
+.vacant .unready{
+    background-color: rgb(255, 153, 0);
+}
+.vacant .faulty{
+    background-color: rgb(255, 0, 0);
+}
+.rooms .faulty{
+    background-color: rgb(255, 0, 0);
+}
+.rooms .faulty:hover{
+    background-color: rgb(255, 0, 0);
+}
+.rooms .unready{
+    background-color: rgb(255, 153, 0);
+}
+.rooms .unready:hover{
+    background-color: rgb(255, 153, 0);
+    color: rgba(119, 76, 7, 0.541);
+}
+.rooms .occupied{
+    background-color: yellow
+}
+.rooms .occupied:hover{
+    background-color: rgb(241, 238, 32);
+    color: rgb(51, 51, 2);
+    
+}
+.close{
+    position: absolute;
+    z-index: 99;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+    background-color: gray;
+    font-size: larger;
+}
+.close:hover{
+    cursor: pointer;
+    background-color: red;
+    color: white;
+}
+.view-guest{
+    position: absolute;
+    padding: 10px;
+    bottom: 30px;
+    right: 50%;
+    font-weight: bolder;
+}
+
+/* ############################ GUEST FORM ################################ */
+/* ############################ GUEST FORM ################################ */
+.wrapper-guest-form h1{
+    text-align: center;
+    font-size: 2.5em;
+    font-family: bebas-neue;
+    padding: 5px 0;
+}
+.form-div{
+    margin: auto;
+    margin-top: 30px;
+    width: 60%;
+    padding: 10px 0;
+}
+.form-div form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bolder;
+}
+.form-div form input{
+    outline-style: none;
+    border: 1px solid black;
+    background-color: transparent;
+    padding: 0 10px;
+    width: 50vw;
+    height: 30px;
+    margin: 10px;
+}.form-div form select{
+    outline-style: none;
+    background-color: transparent;
+    height: 30px;
+    width: 50vw;
+    border: 1px solid black;
+    margin: 0 0 10px 0;
+}
+.form-div form .sub{
+    font-weight: bolder;
+    width: 150px;
+}
+.form-div form .sub:hover{
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
+
+/* ############################ VIEW GUEST ################################ */
+/* ############################ VIEW GUEST ################################ */
+.wrapper-summary{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.view{
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+}
+.wrapper-summary h1{
+    text-align: center;
+    padding: 10px 0;
+    font-family: bebas;
+}
+.view div{
+    padding: 0 2px;
+    border-left: 2px solid white;
+}
+.view h2{
+    color: white;
+    padding: 5px;
+    font-size: 2.5vw;
+    background-color: rgb(189, 140, 6);
+}
+.view h3{
+    text-align: left;
+    padding: 0 3px;
+    margin: 5px 0;
+    font-size: 1.5vw;
+    text-transform: capitalize;
+}
+.view h3:nth-child(odd){
+    background-color: rgb(240, 220, 194);
+}
+.view h3:nth-child(even){
+    background-color: burlywood;
+}
+/* ############################ MAIN HOME ################################ */
+/* ############################ MAIN HOME ################################ */
+.wrapper-home{
+    background-image: url('../images/4.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+.wrapper-home .land{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper-home h1{
+    font-size: 3vw;
+    /* font: bolder 3vw ; */
+    font-family: bebas;
+    color: rgb(240, 156, 46);
+    letter-spacing: 4px;
+    text-shadow: 1px 1px 4px black;
+}
+.wrapper-home .log{
+    background-color: black;
+}
+.wrapper-home .log:hover{
+    cursor: pointer;
+    background-color: black;
+    color: goldenrod !important;
+}
+.wrapper-home .login form{
+    display: flex;
+    flex-direction: column;
+}
+.login{
+    position: relative;
+    display: none;
+    min-width: 50vw;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -50%);
+    background-color: #ffffff;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.login form input, .login select{
+    border: 1px solid black;
+    outline-style: none;
+    border-radius: 3px;
+    width: 30vw;
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+.login .sub:hover{
+    border: 1px solid transparent;
+    cursor: pointer;
+    background-color: rgb(197, 195, 195);
+}
+.login .close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    background-color: transparent;
+    font-weight: bolder;
+    color: black;
+    border: transparent;
+    cursor: pointer;
+}
+.login button{
+    color: white;
+    background-color: black;
+    width: max-content;
+    border: 1px solid transparent;
+    /* padding:  0; */
+}
+/* ############################ BAR DESK ROUTE ################################ */
+/* ############################ BAR DESK ROUTE ################################ */
+.wrapper-bar .nav-bar h1{
+    font-family: bebas-neue;
+    font-size: 2.5em;
+    padding: 10px 0;
+    text-align: center;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content button{
+    width: 150px;
+    margin: 15px 0;
+}
+.content .view2{
+    margin: 20px 0 15px 0;
+}
+.view2 h2{
+    background-color: black;
+    color: white;
+    margin: 0 5px;
+    padding: 5px;
+    font-size: 2.8vw;
+    font-weight: bolder;
+    text-align: center;
+}
+.view2 h3{
+    height: 35px;
+    margin: 0 4px;
+    font-size: 2vw;
+    padding: 5px 0 0 10px;
+}
+.view2 h3:nth-child(odd){
+    background-color: azure;
+}
+.view2 h3:nth-child(even){
+    background-color: rgb(206, 240, 240);
+}
+.view2 #sold input{
+    height: 35px;
+    width: 9.5vw;
+    margin: 0 5px 0 5px;
+    font-size: 2vw;
+    padding: 5px;
+    text-align: center;
+}
+.wrapper-bar .btn1{
+    position: absolute;
+    padding: 10px 20px;
+    left: 50%;
+    z-index: 1;
+}
+.wrapper-bar .btn{
+    position: absolute;
+    padding: 10px 12px;
+    left: 50%;
+}
+.get_data{
+    display: none;
+}
+
+/* ############################ RESTUARANT DESK ROUTE ################################ */
+/* ############################ RESTUARANT DESK ROUTE ################################ */
+.wrapper-rest .nav-bar h1{
+    font-family: bebas-neue;
+    text-align: center;
+    font-size: 2.5em;
+    padding: 10px 0;
+}
+.wrapper-rest .Add_list{
+    position: relative;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+}
+.wrapper-rest .rest_div{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    margin-bottom: 50px;
+}
+.wrapper-rest .rest_div label{
+    font-size: 2vw;
+    font-variant: small-caps;
+    margin: 5px 15px;
+
+}
+.wrapper-rest .rest_div select{
+    font-size: 2vw;
+    margin: 0 0 10px 0;
+    height: 40px;
+}
+.wrapper-rest .rest_div input{
+    width: 50px;
+    font-size: 2vw;
+    padding: 10px;
+    height: 40px;
+}
+.wrapper-rest .Add_list{
+    display: block;
+    width: 80vw;
+    margin: 10vh 10vw 0;
+}
+.wrapper-rest .Add_list div{
+    display: grid;
+    grid-template-columns: 40vw 20vw 20vw;
+}
+.wrapper-rest .Add_list div:nth-child(even){
+    background-color: white;
+}
+.wrapper-rest .Add_list div:nth-child(odd){
+    background-color: whitesmoke;
+}
+.wrapper-rest form input{
+    display: none;
+}
+.wrapper-rest .btn{
+    margin: 0 8px;
+    width: 50px;
+    height: 40px;
+}
+.wrapper-rest .sub{
+    position: absolute;
+    top: 140px;
+    right: 50%;
+    transform: translate(50%);
+    padding: 10px 15px;
+}
+.wrapper-rest .Add_list div h4{
+    margin:  5px;
+    font-size: 2vw;
+    /* background-color: aqua; */
+}
+.wrapper-rest .Add_list div h3{
+    margin:  5px;
+    font-size: 2vw;
+    /* background-color: aqua; */
+    text-align: left;
+    /* width: 300px; */
+}
+.wrapper-rest .Add_list div h5{
+    margin:  5px;
+    font-size: 2vw;
+}
+
+/* ############################ ADMINISTRATOR ################################ */
+/* ############################ ADMINISTRATOR ################################ */
+.wrapper-admin h1{
+    font-size: 2.5em;
+    text-align: center;
+    font-variant: small-caps;
+    font-family: bebas-neue;
+    font-weight: bolder;
+    padding: 5px 0;
+}
+.admin-dash{
+    display: flex; /*## Flex##*/
+    height: 450px;
+    align-items: center;
+    justify-content: center;
+}
+.admin-dash h1{
+    font-variant: normal;
+    color: black;
+}
+.admin-dash div{
+    width: 25%;
+    height: 200px;
+    background-color: white;
+    box-shadow: 0px 0px 7px black;
+    border-radius: 7px;
+    margin: 0 20px !important;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.admin-dash div:hover{
+    transform: scale(1.1);
+    background-color: bisque;
+}
+.admin-dash h1{
+    font-size: 2.5vw;
+    background-color: transparent;
+}
+.admin-control{
+    display: flex; /*## Flex##*/
+    position: absolute;
+    bottom: 30px;
+    left: 20%;
+    right: 20%;
+    flex-direction: column;
+    align-items: center;
+}
+.admin-control button{
+    cursor: pointer;
+    font-size: 1.3vw;
+    padding: 7px 5px;
+    margin: 5px;
+    font-weight: 700;
+}
+/* ###################### FRONT-OFFICE STATATICS VIEW ######################### */
+.front_office{
+    display: none;
+    background-color: rgba(222, 184, 135, 0.411);
+    position: absolute;
+    top: 0;
+    padding: 150px 0 0 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+}
+.front_office div{
+    margin: 0 3px;
+    
+}
+.front_office div h1{
+    font-size: 0.9vw;
+    font-weight: 700;
+    background-color: black;
+    padding: 5px 10px;
+    letter-spacing: 2px;
+    font-family: roboto;
+    color: white;
+}
+.front_office div h2{
+    padding: 5px 0 0 0 !important;
+    height: 50px;
+    text-align: center;
+}
+.room_no, .pay_typ{
+    width: 8%;
+}
+.geust_name{
+    width: 12%;
+}
+.geust_add{
+    width: 15%;
+}
+.arrv h2, .demis h2{
+    padding: 3px !important;
+    font-size: 1vw !important;
+}
+.front_office div h2{
+    font-size: 1vw;
+    padding: 0 10px;
+}
+.front_office div h2:nth-child(even){
+    background-color: white;
+}
+.front_office div h2:nth-child(odd){
+    background-color: rgb(206, 200, 200);
+}
+.front_office button{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: gray;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ###################### BAR-DESK STATATICS VIEW ######################### */
+/* ###################### BAR-DESK STATATICS VIEW ######################### */
+.bar_office{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(222, 184, 135, 0.411);
+    position: absolute;
+    top: 0;
+    padding: 50px 0 0 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+}
+.bar_office div{
+    margin: 10px 0;
+}
+.bar_office h1{
+    font-size: 1.8vw;
+    background-color: white;
+}
+.bar_office h2{
+    background-color: black;
+    color: white;
+    margin: 0 3px;
+    padding: 5px 10px;
+    font-size: 2.5vw;
+}
+.bar_office h3{
+    padding: 0 0 0 10px;
+    margin: 0 3px;
+    font-size: 2vw;
+}
+.bar_office h3:nth-child(odd){
+    background-color: rgb(250, 240, 227);
+}
+.bar_office h3:nth-child(even){
+    background-color: bisque;
+}
+
+.bar_office button{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: gray;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ###################### RESTUARANT-DESK STATATICS VIEW ######################### */
+/* ###################### RESTUARANT-DESK STATATICS VIEW ######################### */
+.rest_office{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(222, 184, 135, 0.411);
+    position: absolute;
+    top: 0;
+    padding: 50px 0 0 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+}
+.rest_office .rest_dis h1{
+    margin: 0 8vw;
+    width: 80vw;
+    font-size: 2vw;
+    color: white;
+    background-color: black;
+    text-align: center !important;
+}
+.rest_office button{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: gray;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.rest_office .rest {
+    margin: 0 8vw 50px;
+    width: 80vw;
+}
+.rest_office .rest div{
+    display: grid;
+    grid-template-columns: 50vw 20vw 10vw;
+}
+.rest_office .rest div:nth-child(even){
+    background-color: white;
+}
+.rest_office .rest div:nth-child(odd){
+    background-color: whitesmoke;
+}
+.rest_office .rest div h4{
+    margin:  5px;
+    font-size: 2vw;
+}
+.rest_office .rest div h3{
+    margin:  5px;
+    font-size: 2vw;
+    text-align: left;
+}
+.rest_office .rest div h5{
+    margin:  5px ;
+    font-size: 2vw;
+}
+
+/* ###################### CREATING A USER ######################### */
+/* ###################### CREATING A USER ######################### */
+.alogin{
+    display: none;
+    background-color: rgba(222, 184, 135, 0.411);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.alogin form{
+    display: flex;
+    flex-direction: column;
+}
+.alogin form input, .alogin select{
+    border: 1px solid transparent;
+    outline-style: none;
+    width: 30vw;
+    padding:10px;
+    margin: 10px 0;
+}
+.alogin .sub:hover{
+    border: 1px solid transparent;
+    cursor: pointer;
+    background-color: rgb(197, 195, 195);
+}
+.alogin button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 25px;
+    background-color: red;
+    color: gray;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.alogin button:hover{
+    background-color: rgb(209, 12, 12);
+    color: white;
+}
+/* ###################### DELETING A USER #########################*/
+.delogin{
+    display: none;
+    flex-direction: column;
+    background-color: rgba(222, 184, 135, 0.411);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.delogin form{
+    display: flex;
+    flex-direction: column;
+}
+.delogin form input, .delogin select{
+    border: 1px solid transparent;
+    outline-style: none;
+    width: 30vw;
+    height: 30px;
+    padding: 0 10px;
+    margin: 10px 0;
+}
+.delogin .sub:hover{
+    border: 1px solid transparent;
+    cursor: pointer;
+    background-color: rgb(197, 195, 195);
+}
+.delogin button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 25px;
+    background-color: red;
+    color: gray;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delogin button:hover{
+    background-color: rgb(209, 12, 12);
+    color: white;
+}
+/* ###################### VIEWING OF ALL USER #########################*/
+.view-user{
+    display: none;
+    background-color: rgba(230, 171, 94, 0.808);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    overflow-x: auto;
+    padding: 100px 0 0 0;
+}
+.view-user div{
+    margin: 0 3px;
+    padding: 0 10px;
+}
+.view-user div h2{
+    font-variant: small-caps;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 2vw;
+    background-color: black;
+    color: white;
+}
+.view-user div h3{
+    padding: 10px;
+}
+.view-user div h3:nth-child(even){
+    background-color: white;
+}
+.view-user div h3:nth-child(odd){
+    background-color: rgb(206, 200, 200);
+}
+.view-user button{
+    position: fixed;
+    top: 0;
+    right: 20px;
+    padding: 5px 10px;
+    font-size: 25px;
+    background-color: red;
+    color: gray;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}

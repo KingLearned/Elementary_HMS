@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <title>FrontOffice</title>
+</head>
+<body>
+<div class="wrapper-summary">
+    <div class="nav-bar">
+        <a href="/Front-Office" class="fo-home">Back</a>
+        <h1>GUEST IN ROOMS</h1>
+    </div>
+        <div class="view">
+            <div class="room">
+                <h2>RM#</h2>
+                <!-- <h3>301</h3> -->
+            </div>
+            <div class="guest">
+                <h2>Guest Name</h2>
+                <!-- <h3>prof Emenike</h3> -->
+            </div>
+            <div class="address">
+                <h2>Address</h2>
+                <!-- <h3>Worldback</h3> -->
+            </div>
+            <div class="phone">
+                <h2>Mobile No</h2>
+                <!-- <h3>07015478962</h3> -->
+            </div>
+            <div class="occupation">
+                <h2>Occupation</h2>
+                <!-- <h3>politician</h3> -->
+            </div>
+        </div>
+</div>
+<script>
+$('document').ready(
+    $.ajax({
+        method: "POST",
+        success: (data, valid) => {
+            
+            for (let i = 0; i < data.Guest.length; i++) {
+                document.querySelector('.room').innerHTML += `<h3>${data.Guest[i].rooms}</h3>`
+                document.querySelector('.guest').innerHTML += `<h3>${data.Guest[i].guest}</h3>`
+                document.querySelector('.address').innerHTML += `<h3>${data.Guest[i].address}</h3>`
+                document.querySelector('.phone').innerHTML += `<h3>${data.Guest[i].phone}</h3>`
+                document.querySelector('.occupation').innerHTML += `<h3>${data.Guest[i].occupation}</h3>`
+            }
+        },
+        error: (err) => {
+            console.log(err)
+        }
+    })
+)
+</script>
+<!-- <script src="./js/main.js"></script> -->
+</body>
+</html>

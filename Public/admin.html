@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <title>Administrator</title>
+</head>
+<body>
+<div class="wrapper-admin">
+    <div class="nav-bar">
+        <a href="/" class="fo-home">Home</a>
+        <h1>Administrator's Desk</h1>
+        <a href="/logout" class="fo-logout">Logout</a>
+    </div>
+    <div class="admin-view">
+        <div class="admin-dash">
+            <div><a href="/Front-Office"><h1>Front-Office</h1><h1>Desk</h1></a></div>
+            <div><a href="/Bar-Office"><h1>Bar-Office</h1><h1>Desk</h1></a></div>
+            <div><a href="/Restuarant-Office"><h1>Restuarant</h1><h1>Desk</h1></a></div>
+        </div>
+        <div class="admin-control">
+            <div>
+                <button class="fds">Front-Desk Stats</button>
+                <button class="bds">Bar-Desk Stats</button>
+                <button class="rds">Restuarant Stats</button>
+            </div>
+            <div>
+                <button class="crtuser">Create User</button>
+                <button class="deluser">Delete User</button>
+                <button class="alluser">View All User</button>
+            </div>
+        </div>
+    </div>
+    <!-- ###### FOR FRONT DESK STATISTIC ######  -->
+    <!-- ###### FOR FRONT DESK STATISTIC ######  -->
+    <div class="front_office">
+        <button class="close">X</button>
+        <div class="nom">
+            <h1>No</h1>
+        </div>
+        <div class="room_no">
+            <h1>Room-No</h1>
+        </div>
+        <div class="geust_name">
+            <h1>Guest Name</h1>
+        </div>
+        <div class="geust_g">
+            <h1>Gender</h1>
+        </div>
+        <div class="geust_st">
+            <h1>Status</h1>
+        </div>
+        <div class="geust_occ">
+            <h1>Occupation</h1>
+        </div>
+        <div class="geust_add">
+            <h1>Address</h1>
+        </div>
+        <div class="geust_num">
+            <h1>Number</h1>
+        </div>
+        <div class="amount_pd">
+            <h1>Amount</h1>
+        </div>
+        <div class="pay_typ">
+            <h1>Pay Type</h1>
+        </div>
+        <div class="arrv">
+            <h1>Arrival</h1>
+        </div>
+        <div class="demis">
+            <h1>Dismissal</h1>
+        </div>
+    </div>
+     <!-- ###### FOR BAR DESK STATISTIC ######  -->
+    <!-- ###### FOR BAR DESK STATISTIC ######  -->
+    <div class="bar_office">
+        <button class="close">X</button>
+        <div class="bar_dis">
+            
+        </div>
+    </div>
+    <!-- ###### FOR RESTUARANT DESK STATISTIC ######  -->
+    <!-- ###### FOR RESTUARANT DESK STATISTIC ######  -->
+    <div class="rest_office">
+        <button class="close">X</button>
+        <div class="rest_dis">
+            
+        </div>
+    </div>
+
+    <!-- ###### FOR CREATING AND ASSIGN A HIS/HER ROLE USER ######  -->
+    <!-- ###### FOR CREATING AND ASSIGN A HIS/HER ROLE USER ######  -->
+    <div class="alogin">
+        <button class="close">X</button>
+        <form method="POST">
+            <input type="button" value="CREATE A USER" style="font-weight: bolder;">
+            <input type="text" placeholder="Chose-User-Name" name="user_name" required>
+            <input type="text" placeholder="Chose-password" name="user_pwd" required>
+            <label for="position" style="text-align: center; font-weight:bolder;">Position:</label>
+            <select name="user_position" required>
+                <option>Front Office</option>
+                <option>Restuarant</option>
+                <option>Waiter Bar</option>
+                <option>Administrator</option>
+            </select>
+            <input type="submit" value="CREAT USER" class="sub">
+        </form>
+    </div>
+
+    <!-- ###### FOR DELETING OF A USER ######  -->
+    <!-- ###### FOR DELETING OF A USER ######  -->
+    <div class="delogin">
+        <button class="close">X</button>
+        <form method="POST">
+            <input type="button" value="DELETE AN EXISTING USER" style="font-weight: bolder;">
+            <input type="text" placeholder="Enter-User-To-Delete" name="user_name" required>
+            <label for="position" style="text-align: center; font-weight:bolder;">Position:</label>
+            <select name="user_position" required>
+                <option>Front Office</option>
+                <option>Restuarant</option>
+                <option>Waiter Bar</option>
+            </select>
+            <input type="submit" value="DELETE USER" class="sub">
+        </form>
+        <div class="display-msg" style="color: navy; font-weight:bolder; margin:5px 0;"></div>
+    </div>
+
+    <!-- ###### FOR VIEWING OF ALL USERS ######  -->
+    <!-- ###### FOR VIEWING OF ALL USERS ######  -->
+    <div class="view-user">
+        <button class="close">X</button>
+        <div class="num">
+            <h2>No</h2>
+        </div>
+        <div class="users">
+            <h2>Users-Name</h2>
+        </div>
+        <div class="users-pwd">
+            <h2>Password</h2>
+        </div>
+        <div class="users-pst">
+            <h2>Position</h2>
+        </div>
+    </div>
+</div>
+<script src="./js/admin.js"></script>
+</body>
+</html>

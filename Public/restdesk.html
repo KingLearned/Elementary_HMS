@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <title>Restuarant Office</title>
+</head>
+<body>
+<div class="wrapper-rest">
+    <div class="nav-bar">
+        <a href="/" class="fo-home">Home</a>
+        <h1>Restuarant Office</h1>
+        <a href="/logout" class="fo-logout">Logout</a>
+    </div>
+    <div class="rest_div">
+        <label for="items">Items:</label>
+        <select name="items" class="items" required>
+            <option>Toasted Bread and Coffee Tea</option>
+            <option>Fried Plantain With Egg Sauce</option>
+            <option>Fried Yam With Egg Sauce</option>
+            <option>Fried Potatoes With Egg Sauce</option>
+            <option>Fried Rice with Chicken</option>
+            <option>Fried Rice with Goat Meat</option>
+            <option>Fried Rice with Beef</option>
+            <option>Jollof Rice with Chicken</option>
+            <option>Jollof Rice with Goat Meat</option>
+            <option>Jollof Rice with Beef</option>
+            <option>Okazi Soup with Beef</option>
+            <option>Okazi Soup with Chicken</option>
+            <option>Okazi Soup with Goat Meat</option>
+            <option>Oha Soup with Beef</option>
+            <option>Oha Soup with Chicken</option>
+            <option>Oha Soup with Goat Meat</option>
+            <option>Vegetable Soup with Beef</option>
+            <option>Vegetable Soup with Chicken</option>
+            <option>Vegetable Soup with Goat Meat</option>
+        </select>
+
+        <label for="price">price:</label>
+        <select name="price" class="price" required>
+            <option>500</option>
+            <option>700</option>
+            <option>1500</option>
+            <option>1700</option>
+            <option>1800</option>
+        </select>
+        <label for="">Qty:</label>
+        <input type="text" class="qtny">
+        <button onclick="Addon()" class="btn">Add On</button>
+    </div>
+    
+    <div class="Add_list">
+    </div>
+    <form method="POST">
+        <input type="text" name="restpost" class="restpost">
+        <button type="submit" class="sub" onclick="sub()">POST NOW!</button>
+    </form>
+</div>
+<script>
+    const Additem = document.querySelector('.Add_list')
+    const push = document.querySelector('.restpost')
+    function Addon(){
+        const Items = document.querySelector('.items').value
+        const Price = document.querySelector('.price').value
+        const Qty = document.querySelector('.qtny').value
+        const Merg = `<h3>${Items}</h3> <h4>(${Price}) * (${Qty})</h4> <h5>= ${Price*Qty}</h5>`
+        if(Qty !== ''){
+            Additem.innerHTML += `<div>${Merg}</div>`
+            const Qty = document.querySelector('.qtny').value = ''
+            const Price = document.querySelector('.price').value = 500
+            push.value = Additem.innerHTML
+        }
+    }
+
+    
+</script>
+<!-- <script src="./js/main.js"></script> -->
+</body>
+</html>

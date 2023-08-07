@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/bootstrap-5.3.0//dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <title>Login - 27/02/2023</title>
+</head>
+<body>
+<div class="wrapper-home">
+    <div class="land">
+        <!-- <img src="./images/Retro-Icon.ico" alt="" width="100px" height="100px"> -->
+        <h1 class="fs-1 fw-bold">WELCOME TO RETRO INTERCONTINENTAL</h1>
+        <h1 class="fs-1 fw-bold">SUITES & HOTELS</h1>
+        <button class="log btn text text-white fs-5 fw-bold">LOGIN</button>
+    </div>
+    <div class="login">
+        <button class="close">X</button>
+        <form method="POST" class="d-flex align-items-center justify-center">
+            <input type="text" placeholder="Username" name="username" class="username" required>
+            <input type="password" placeholder="Password" name="pwd" class="pwd" required>
+            <label for="position" style="text-align: center; font-weight:bolder;">Position:</label>
+            <select name="position" class="position" required>
+                <option>Front Office</option>
+                <option>Restuarant</option>
+                <option>Waiter Bar</option>
+                <option>Administrator</option>
+            </select>
+            <button type="submit" class="sub px-2 py-1 border rounded fs-5">LOGIN</button>
+        </form>
+    </div>
+</div>
+<script>
+    const home = document.querySelector('.land')
+    const login = document.querySelector('.login')
+    const log = document.querySelector('.log')
+    const closebtn = document.querySelector('.close')
+    log.addEventListener('click', () => {
+        home.style.display = 'none'
+        login.style.display = 'flex'
+    });
+    closebtn.addEventListener('click', () => {
+        home.style.display = 'flex'
+        login.style.display = 'none'
+    })
+</script>
+<script src="./js/home.js"></script>
+</body>
+</html>
